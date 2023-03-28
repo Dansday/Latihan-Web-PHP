@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Maps</title>
+    <style>
+        .wrapper{ 
+            width: 360px; padding: 20px;
+        }
+        #map {
+            height: 100%;
+        }
+        html, body {
+            font: 14px sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Akbar Yudhanto</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="canvas.html">Canvas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div id="map"></div>
+    <script>
+        
+        function initMap(){
+            var pnj = {lat: -6.358983778968957, lng: 106.81114194911538};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: pnj
+            });
+
+            var contentString = '<h2>Rumah Akbar Yudhanto</h2>';
+
+            var infowindow =  new google.maps.InfoWindow({
+                content: contentString,
+                position: pnj
+            });
+            
+            infowindow.open(map);
+        }
+    </script>
+   
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5vnPGeBGx7QIHILGDZOXQTkEoim880kI&callback=initMap"></script>
+
+</body>
+</html>
